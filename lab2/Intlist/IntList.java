@@ -80,8 +80,22 @@ public class IntList {
      */
 
     public static IntList dcatenate(IntList A, IntList B) {
-        //TODO:  fill in method
-        return null;
+        //add items of B to the end of A
+        //recursive method
+        if(A == null) return B;
+        if(B == null)   return A;
+        A.rest = dcatenate(A.rest, B);
+        return A;
+        //iterative method
+        /*if(A == null) return B;
+        if(B == null)   return A;
+        IntList p = A;
+        //first find the end of A
+        while(p.rest != null){
+            p = p.rest;
+        }
+        p.rest = B;
+        return A;*/
     }
 
     /**
@@ -89,8 +103,23 @@ public class IntList {
      * * elements of B.  May NOT modify items of A.  Use 'new'.
      */
     public static IntList catenate(IntList A, IntList B) {
-        //TODO:  fill in method
-        return null;
+        if(A == null)   return B;
+        //recursive method
+        IntList res = new IntList(A.first, null);
+        res.rest = catenate(A.rest, B);
+        return res;
+
+        //iterative method
+        /*IntList res = new IntList (A.first, null);
+        IntList p1 = A;
+        IntList p2 = res;
+        while(p1.rest != null){
+            p1=p1.rest;
+            p2.rest = new IntList(p1.first, null);
+            p2 = p2.rest;
+        }
+        p2.rest = B;
+        return res;*/
     }
 
 
