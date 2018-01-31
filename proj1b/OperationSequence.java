@@ -23,6 +23,9 @@ public class OperationSequence {
         opSequence.addLast(dequeOp);
     }
 
+    /* Removes an operation to the failure sequence. */
+    public void removeOperation() {opSequence.removeLast();}
+
     /** Returns a String representation for this OperationSequence. */
     public String toString() {
         StringBuilder sb = new StringBuilder();
